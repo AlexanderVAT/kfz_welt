@@ -31,16 +31,19 @@
     <div class="container">
         <article class="main_container-article">
             <h2>The select Element</h2>
-            <form id="main_form" action="/users" th:action="@{/registration}" th:object="${registration}" method="post">
+            <form id="main_form" onsubmit=" return make_json(this);" method="post">
                 <br><br>
                 <label for="id_name">Name</label>
-                <input type="text" name="name" id="id_name" th:field="*{name}" />
+                <input type="text" name="name" id="id_name" />
                 <label for="id_surname">Surname</label>
-                <input type="text" name="surname" id="id_surname" th:field="*{surname}" />
+                <input type="text" name="surname" id="id_surname" />
                 <label for="id_email">E-email</label>
-                <input type="email" name="email" id="id_email" th:th:field="*{email}"/>
+                <input type="email" name="email" id="id_email" />
                 <input type="submit" id="btn_submit" value="submit">
             </form>
+          <pre id="output">
+            Fill the above form to make json...
+          </pre>
         </article>
     </div>
 
@@ -69,9 +72,38 @@
         </div>
     </div>
 </footer>
-<scriptsrc="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-<script src="main-script.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  function make_json(form) {
+    var json = {
+      "first_name":form.name.value,
+      "last_name":form.surname.value,
+      "email":form.email.value
+    };
+    var html=JSON.stringify(json, 0, 4);
+    document.getElementById('output').innerHTML=html;
+    return false;
+  }
+  var fs = require('fs');
+
+    fs.writeFile("text.txt", jsonData, function (err) {
+      if (err) {
+        console.log(err);
+      }
+    });
+
+    function download(content, fileName, contentType) {
+      var a = document.createElement("a");
+      var file = new Blob([content], {type: contentType});
+      a.href = URL.createObjectURL(file);
+      a.download = fileName;
+      a.click();
+    }
+    download(jsonData, 'json.txt', 'text/plain');
+</script>
+<script src="main-script.js"></script>
 </body>
 </html>
 
