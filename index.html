@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>KFZ WELT</title>
+    <meta http-equiv="Content-Type" content="text/html, charset=UTF-8">
+    <link type="text/css" rel="stylesheet" href="css/master.css">
+</head>
+<body>
+<header class="main_header">
+    <div class="container">
+        <div class="main_header-logo logo__main">
+            <img class="logo__main-top" src="img/KFZ-logo.jpg" alt="main logo" width= "180px"; height= "40px"/>
+        </div>
+        <div class="main_header-nav nav__main">
+            <nav class="nav__main-menu">
+                <ul class="nav__main-menu--lust">
+                    <li>Client</li>
+                    <li>Werkschtat</li>
+                </ul>
+            </nav>
+        </div>
+        <div class="main_header-login header__login">
+                <img class="header__login-img" src="http://placehold.it/150x100" width="150px" height="100px"/>
+                <button class="header__login-btn btn--login">Login</button>
+        </div>
+    </div>
+</header>
+<main class="main_content">
+    <div class="container">
+        <article class="main_container-article">
+            <h2>The select Element</h2>
+            <form id="main_form" action="/users" th:action="@{/registration}" th:object="${registration}" method="post">
+                <br><br>
+                <label for="id_name">Name</label>
+                <input type="text" name="name" id="id_name" th:field="*{name}" />
+                <label for="id_surname">Surname</label>
+                <input type="text" name="surname" id="id_surname" th:field="*{surname}" />
+                <label for="id_email">E-email</label>
+                <input type="email" name="email" id="id_email" th:th:field="*{email}"/>
+                <input type="submit" id="btn_submit" value="submit">
+            </form>
+        </article>
+    </div>
+
+
+</main>
+<footer class="main_footer">
+    <div class="container">
+        <div class="main_footer-contacts">
+            <span>Phone: +49 177 777444333</span>
+            <span>Email: kfzwelt@kfz.de</span>
+            <p>Address:<br>Friedrichstrasse 167/169<br>Berlin 01245<br>Deutschland</p>
+        </div>
+        <div class="main_footer-social">
+            <div class="fb">
+                <a href="#">fb</a>
+            </div>
+            <div class="inst">
+                <a href="#">inst</a>
+            </div>
+            <div class="vk">
+                <a href="#">vk</a>
+            </div>
+        </div>
+        <div class="main_footer-trademark">
+            <span>All rights reserved 2018</span>
+        </div>
+    </div>
+</footer>
+<scriptsrc="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="main-script.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</body>
+</html>
+
+<!--<form id="main_form" action="/users" th:action="@{/registration}" th:object="${registration}" method="post">-->
+<!--<select name="cars">-->
+<!--<option value="volvo" th:field="*{car}">Volvo</option>-->
+<!--<option value="saab" th:field="*{car}">Saab</option>-->
+<!--<option value="fiat" th:field="*{car}">Fiat</option>-->
+<!--<option value="audi" th:field="*{car}">Audi</option>-->
+<!--<option value="audi" th:field="*{car}">Mercedez-Benz</option>-->
+<!--<option value="audi" th:field="*{car}">Nissan</option>-->
+<!--<option value="audi" th:field="*{car}">Volga</option>-->
+<!--<option value="audi" th:field="*{car}">Skoda</option>-->
+<!--<option value="audi" th:field="*{car}">Cadilac</option>-->
+<!--<option value="audi" th:field="*{car}">Ford</option>-->
+<!--<option value="audi" th:field="*{car}">Alfa-Romeo</option>-->
+<!--<option value="audi" th:field="*{car}">BMW</option>-->
+<!--<option value="audi" th:field="*{car}">Opel</option>-->
+<!--<option value="audi" th:field="*{car}">Acura</option>-->
+<!--<option value="audi" th:field="*{car}">Aston Martin</option>-->
+<!--</select>-->
+<!--<br><br>-->
+<!--<label for="id_name">Name</label>-->
+<!--<input type="text" name="name" id="id_name" th:field="*{name}" />-->
+<!--<label for="id_email">E-email</label>-->
+<!--<input type="email" name="email" id="id_email" th:th:field="*{email}"/>-->
+<!--<input type="submit" id="btn_submit" value="submit">-->
+<!--</form>-->
